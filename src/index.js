@@ -15,6 +15,8 @@ const Root = () => (
   <Router>
     <Routes>
       <Route path="/" element={<App />} />
+      <Route path="cars/:model" element={<Car />} />
+      <Route path="cars/new" element={<NewCar />} />
       <Route path="cars" element={<Cars />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
