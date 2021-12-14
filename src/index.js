@@ -5,6 +5,7 @@ import App from './App';
 import Car from './components/Car';
 import Cars from './components/Cars';
 import NewCar from './components/NewCar';
+import IntroCars from './components/IntroCars';
 import NotFound from './components/NotFound';
 
 import reportWebVitals from './reportWebVitals';
@@ -15,9 +16,11 @@ const Root = () => (
   <Router>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="cars/:model" element={<Car />} />
-      <Route path="cars/new" element={<NewCar />} />
-      <Route path="cars" element={<Cars />} />
+      <Route path="cars" element={<Cars />}>
+        <Route path=":model" element={<Car />} />
+        <Route path="new" element={<NewCar />} />
+        <Route index element={<IntroCars />} />
+      </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
   </Router>
